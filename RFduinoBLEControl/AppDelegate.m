@@ -127,42 +127,44 @@
 #pragma mark - CBCentralManager delegate function
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+    NSLog(@"central: state changed");
     
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
-    
+    NSLog(@"central: discovered peripheral");
 }
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
-    
+    NSLog(@"central: connected to peripheral");
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
-    
+    NSLog(@"central: disconnected from peripheral");
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
-
+    NSLog(@"central: failed to connect to peripheral");
 }
 
 #pragma mark - CBperipheral delegate function
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
-    
+    NSLog(@"peripheral: discovered characteristics for service");
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    
+    NSLog(@"peripheral: wrote value for characteristics");
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-
+    NSLog(@"peripheral: updated value for characteristics");
 }
 
 #pragma mark - BLE related functions
 
 - (void)setupCoreBluetooth {
+    NSLog(@"setting up core bluetooth manager.");
     self.cbmanager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
     self.cbmanager.delegate = self;
 }
