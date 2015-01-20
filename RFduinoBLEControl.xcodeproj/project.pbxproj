@@ -10,12 +10,12 @@
 		158760AC1A6E22EF00A5AE0F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760AB1A6E22EF00A5AE0F /* main.m */; };
 		158760AF1A6E22EF00A5AE0F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760AE1A6E22EF00A5AE0F /* AppDelegate.m */; };
 		158760B21A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 158760B01A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodeld */; };
-		158760B51A6E22EF00A5AE0F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760B41A6E22EF00A5AE0F /* ViewController.m */; };
 		158760B81A6E22EF00A5AE0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 158760B61A6E22EF00A5AE0F /* Main.storyboard */; };
 		158760BA1A6E22EF00A5AE0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 158760B91A6E22EF00A5AE0F /* Images.xcassets */; };
 		158760BD1A6E22EF00A5AE0F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158760BB1A6E22EF00A5AE0F /* LaunchScreen.xib */; };
 		158760C91A6E22F000A5AE0F /* RFduinoBLEControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760C81A6E22F000A5AE0F /* RFduinoBLEControlTests.m */; };
 		158760D31A6E255C00A5AE0F /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158760D21A6E255C00A5AE0F /* CoreBluetooth.framework */; };
+		158760D71A6E2B0900A5AE0F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760D61A6E2B0900A5AE0F /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +35,6 @@
 		158760AD1A6E22EF00A5AE0F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		158760AE1A6E22EF00A5AE0F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		158760B11A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RFduinoBLEControl.xcdatamodel; sourceTree = "<group>"; };
-		158760B31A6E22EF00A5AE0F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		158760B41A6E22EF00A5AE0F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		158760B71A6E22EF00A5AE0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		158760B91A6E22EF00A5AE0F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		158760BC1A6E22EF00A5AE0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -44,6 +42,8 @@
 		158760C71A6E22F000A5AE0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		158760C81A6E22F000A5AE0F /* RFduinoBLEControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RFduinoBLEControlTests.m; sourceTree = "<group>"; };
 		158760D21A6E255C00A5AE0F /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		158760D51A6E2B0900A5AE0F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		158760D61A6E2B0900A5AE0F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +89,8 @@
 			children = (
 				158760AD1A6E22EF00A5AE0F /* AppDelegate.h */,
 				158760AE1A6E22EF00A5AE0F /* AppDelegate.m */,
-				158760B31A6E22EF00A5AE0F /* ViewController.h */,
-				158760B41A6E22EF00A5AE0F /* ViewController.m */,
+				158760D51A6E2B0900A5AE0F /* MainViewController.h */,
+				158760D61A6E2B0900A5AE0F /* MainViewController.m */,
 				158760B61A6E22EF00A5AE0F /* Main.storyboard */,
 				158760B91A6E22EF00A5AE0F /* Images.xcassets */,
 				158760BB1A6E22EF00A5AE0F /* LaunchScreen.xib */,
@@ -235,8 +235,8 @@
 			files = (
 				158760AF1A6E22EF00A5AE0F /* AppDelegate.m in Sources */,
 				158760AC1A6E22EF00A5AE0F /* main.m in Sources */,
-				158760B51A6E22EF00A5AE0F /* ViewController.m in Sources */,
 				158760B21A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodeld in Sources */,
+				158760D71A6E2B0900A5AE0F /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
