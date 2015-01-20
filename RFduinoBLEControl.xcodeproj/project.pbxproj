@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		158760AC1A6E22EF00A5AE0F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760AB1A6E22EF00A5AE0F /* main.m */; };
+		158760AF1A6E22EF00A5AE0F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760AE1A6E22EF00A5AE0F /* AppDelegate.m */; };
+		158760B21A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 158760B01A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodeld */; };
+		158760B51A6E22EF00A5AE0F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760B41A6E22EF00A5AE0F /* ViewController.m */; };
+		158760B81A6E22EF00A5AE0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 158760B61A6E22EF00A5AE0F /* Main.storyboard */; };
+		158760BA1A6E22EF00A5AE0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 158760B91A6E22EF00A5AE0F /* Images.xcassets */; };
+		158760BD1A6E22EF00A5AE0F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158760BB1A6E22EF00A5AE0F /* LaunchScreen.xib */; };
+		158760C91A6E22F000A5AE0F /* RFduinoBLEControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760C81A6E22F000A5AE0F /* RFduinoBLEControlTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		158760C31A6E22F000A5AE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1587609E1A6E22EF00A5AE0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 158760A51A6E22EF00A5AE0F;
+			remoteInfo = RFduinoBLEControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		158760A61A6E22EF00A5AE0F /* RFduinoBLEControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RFduinoBLEControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		158760AA1A6E22EF00A5AE0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		158760AB1A6E22EF00A5AE0F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		158760AD1A6E22EF00A5AE0F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		158760AE1A6E22EF00A5AE0F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		158760B11A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RFduinoBLEControl.xcdatamodel; sourceTree = "<group>"; };
+		158760B31A6E22EF00A5AE0F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		158760B41A6E22EF00A5AE0F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		158760B71A6E22EF00A5AE0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		158760B91A6E22EF00A5AE0F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		158760BC1A6E22EF00A5AE0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		158760C21A6E22F000A5AE0F /* RFduinoBLEControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RFduinoBLEControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		158760C71A6E22F000A5AE0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		158760C81A6E22F000A5AE0F /* RFduinoBLEControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RFduinoBLEControlTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		158760A31A6E22EF00A5AE0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		158760BF1A6E22F000A5AE0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1587609D1A6E22EF00A5AE0F = {
+			isa = PBXGroup;
+			children = (
+				158760A81A6E22EF00A5AE0F /* RFduinoBLEControl */,
+				158760C51A6E22F000A5AE0F /* RFduinoBLEControlTests */,
+				158760A71A6E22EF00A5AE0F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		158760A71A6E22EF00A5AE0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				158760A61A6E22EF00A5AE0F /* RFduinoBLEControl.app */,
+				158760C21A6E22F000A5AE0F /* RFduinoBLEControlTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		158760A81A6E22EF00A5AE0F /* RFduinoBLEControl */ = {
+			isa = PBXGroup;
+			children = (
+				158760AD1A6E22EF00A5AE0F /* AppDelegate.h */,
+				158760AE1A6E22EF00A5AE0F /* AppDelegate.m */,
+				158760B31A6E22EF00A5AE0F /* ViewController.h */,
+				158760B41A6E22EF00A5AE0F /* ViewController.m */,
+				158760B61A6E22EF00A5AE0F /* Main.storyboard */,
+				158760B91A6E22EF00A5AE0F /* Images.xcassets */,
+				158760BB1A6E22EF00A5AE0F /* LaunchScreen.xib */,
+				158760B01A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodeld */,
+				158760A91A6E22EF00A5AE0F /* Supporting Files */,
+			);
+			path = RFduinoBLEControl;
+			sourceTree = "<group>";
+		};
+		158760A91A6E22EF00A5AE0F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				158760AA1A6E22EF00A5AE0F /* Info.plist */,
+				158760AB1A6E22EF00A5AE0F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		158760C51A6E22F000A5AE0F /* RFduinoBLEControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				158760C81A6E22F000A5AE0F /* RFduinoBLEControlTests.m */,
+				158760C61A6E22F000A5AE0F /* Supporting Files */,
+			);
+			path = RFduinoBLEControlTests;
+			sourceTree = "<group>";
+		};
+		158760C61A6E22F000A5AE0F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				158760C71A6E22F000A5AE0F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		158760A51A6E22EF00A5AE0F /* RFduinoBLEControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 158760CC1A6E22F000A5AE0F /* Build configuration list for PBXNativeTarget "RFduinoBLEControl" */;
+			buildPhases = (
+				158760A21A6E22EF00A5AE0F /* Sources */,
+				158760A31A6E22EF00A5AE0F /* Frameworks */,
+				158760A41A6E22EF00A5AE0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RFduinoBLEControl;
+			productName = RFduinoBLEControl;
+			productReference = 158760A61A6E22EF00A5AE0F /* RFduinoBLEControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		158760C11A6E22F000A5AE0F /* RFduinoBLEControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 158760CF1A6E22F000A5AE0F /* Build configuration list for PBXNativeTarget "RFduinoBLEControlTests" */;
+			buildPhases = (
+				158760BE1A6E22F000A5AE0F /* Sources */,
+				158760BF1A6E22F000A5AE0F /* Frameworks */,
+				158760C01A6E22F000A5AE0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				158760C41A6E22F000A5AE0F /* PBXTargetDependency */,
+			);
+			name = RFduinoBLEControlTests;
+			productName = RFduinoBLEControlTests;
+			productReference = 158760C21A6E22F000A5AE0F /* RFduinoBLEControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1587609E1A6E22EF00A5AE0F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				TargetAttributes = {
+					158760A51A6E22EF00A5AE0F = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					158760C11A6E22F000A5AE0F = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 158760A51A6E22EF00A5AE0F;
+					};
+				};
+			};
+			buildConfigurationList = 158760A11A6E22EF00A5AE0F /* Build configuration list for PBXProject "RFduinoBLEControl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1587609D1A6E22EF00A5AE0F;
+			productRefGroup = 158760A71A6E22EF00A5AE0F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				158760A51A6E22EF00A5AE0F /* RFduinoBLEControl */,
+				158760C11A6E22F000A5AE0F /* RFduinoBLEControlTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		158760A41A6E22EF00A5AE0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				158760B81A6E22EF00A5AE0F /* Main.storyboard in Resources */,
+				158760BD1A6E22EF00A5AE0F /* LaunchScreen.xib in Resources */,
+				158760BA1A6E22EF00A5AE0F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		158760C01A6E22F000A5AE0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		158760A21A6E22EF00A5AE0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				158760AF1A6E22EF00A5AE0F /* AppDelegate.m in Sources */,
+				158760AC1A6E22EF00A5AE0F /* main.m in Sources */,
+				158760B51A6E22EF00A5AE0F /* ViewController.m in Sources */,
+				158760B21A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		158760BE1A6E22F000A5AE0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				158760C91A6E22F000A5AE0F /* RFduinoBLEControlTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		158760C41A6E22F000A5AE0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 158760A51A6E22EF00A5AE0F /* RFduinoBLEControl */;
+			targetProxy = 158760C31A6E22F000A5AE0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		158760B61A6E22EF00A5AE0F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				158760B71A6E22EF00A5AE0F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		158760BB1A6E22EF00A5AE0F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				158760BC1A6E22EF00A5AE0F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		158760CA1A6E22F000A5AE0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		158760CB1A6E22F000A5AE0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		158760CD1A6E22F000A5AE0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RFduinoBLEControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		158760CE1A6E22F000A5AE0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RFduinoBLEControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		158760D01A6E22F000A5AE0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RFduinoBLEControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RFduinoBLEControl.app/RFduinoBLEControl";
+			};
+			name = Debug;
+		};
+		158760D11A6E22F000A5AE0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RFduinoBLEControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RFduinoBLEControl.app/RFduinoBLEControl";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		158760A11A6E22EF00A5AE0F /* Build configuration list for PBXProject "RFduinoBLEControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				158760CA1A6E22F000A5AE0F /* Debug */,
+				158760CB1A6E22F000A5AE0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		158760CC1A6E22F000A5AE0F /* Build configuration list for PBXNativeTarget "RFduinoBLEControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				158760CD1A6E22F000A5AE0F /* Debug */,
+				158760CE1A6E22F000A5AE0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		158760CF1A6E22F000A5AE0F /* Build configuration list for PBXNativeTarget "RFduinoBLEControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				158760D01A6E22F000A5AE0F /* Debug */,
+				158760D11A6E22F000A5AE0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		158760B01A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				158760B11A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodel */,
+			);
+			currentVersion = 158760B11A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodel */;
+			path = RFduinoBLEControl.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1587609E1A6E22EF00A5AE0F /* Project object */;
+}
