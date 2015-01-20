@@ -21,6 +21,10 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+@property (strong, nonatomic) CBCentralManager* cbmanager;
+@property (strong, nonatomic) CBPeripheral* cbperipheral;
+
+- (void)setupCoreBluetooth;
 
 @end
 

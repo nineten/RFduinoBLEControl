@@ -152,12 +152,19 @@
     
 }
 
--(void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
     
 }
 
--(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
 
+}
+
+#pragma mark - BLE related functions
+
+- (void)setupCoreBluetooth {
+    self.cbmanager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
+    self.cbmanager.delegate = self;
 }
 
 @end
