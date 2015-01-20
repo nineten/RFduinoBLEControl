@@ -124,7 +124,7 @@
     }
 }
 
-#pragma mark - Core Bluetooth
+#pragma mark - CBCentralManager delegate function
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     
@@ -143,6 +143,20 @@
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
+
+}
+
+#pragma mark - CBperipheral delegate function
+
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
+    
+}
+
+-(void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+    
+}
+
+-(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
 
 }
 
