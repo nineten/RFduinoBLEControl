@@ -128,6 +128,7 @@
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     NSLog(@"central: state changed");
+    
     if (central.state != CBCentralManagerStatePoweredOn) {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"BLE not supported !" message:[NSString stringWithFormat:@"CoreBluetooth return state: %d",central.state] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
@@ -141,10 +142,15 @@
     
     peripheral.delegate = self;
     [central connectPeripheral:peripheral options:nil];
+    
+    // store the peripherals to prevent ARC i think?
+    [self.nDevices addObject:peripheral];
 }
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     NSLog(@"central: connected to peripheral");
+    
+    [peripheral discoverServices:nil];
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -159,6 +165,11 @@
 
 - (void) peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
     NSLog(@"peripheral: discovered service");
+    
+    [self.cbmanager cancelPeripheralConnection:peripheral];
+    for (CBService *service in peripheral.services) {
+        NSLog(@"Service found : %@",service.UUID);
+    }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
@@ -179,6 +190,8 @@
     NSLog(@"setting up core bluetooth manager.");
     self.cbmanager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
     self.cbmanager.delegate = self;
+    
+    self.nDevices = [[NSMutableArray alloc] init];
 }
 
 @end

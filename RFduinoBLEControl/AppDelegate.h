@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) CBCentralManager* cbmanager;
 @property (strong, nonatomic) CBPeripheral* cbperipheral;
+@property (strong, nonatomic) NSMutableArray *nDevices;
 
 - (void)setupCoreBluetooth;
 
