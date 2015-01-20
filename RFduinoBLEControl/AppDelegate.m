@@ -138,37 +138,39 @@
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
-    NSLog(@"central: discovered peripheral >> %@",peripheral);
+    NSLog(@"central: discovered peripheral >> %@ %@",peripheral.name, advertisementData);
     
-    peripheral.delegate = self;
-    [central connectPeripheral:peripheral options:nil];
-    
-    // store the peripherals to prevent ARC i think?
-    [self.nDevices addObject:peripheral];
+    if ([peripheral.name isEqualToString:@"JBLEAdv"]) {
+        peripheral.delegate = self;
+        [central connectPeripheral:peripheral options:nil];
+        
+        // store the peripherals to prevent ARC i think?
+        [self.nDevices addObject:peripheral];
+    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
-    NSLog(@"central: connected to peripheral");
+    NSLog(@"central: connected to peripheral >> %@", peripheral.name);
     
     [peripheral discoverServices:nil];
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
-    NSLog(@"central: disconnected from peripheral");
+    NSLog(@"central: disconnected from peripheral >> %@", peripheral.name);
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
-    NSLog(@"central: failed to connect to peripheral");
+    NSLog(@"central: failed to connect to peripheral >> %@", peripheral.name);
 }
 
 #pragma mark - CBperipheral delegate function
 
 - (void) peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
-    NSLog(@"peripheral: discovered service");
+    NSLog(@"peripheral: discovered service >> %@", peripheral.name);
     
     [self.cbmanager cancelPeripheralConnection:peripheral];
     for (CBService *service in peripheral.services) {
-        NSLog(@"Service found : %@",service.UUID);
+        NSLog(@"peripheral: service found >> %@",service.UUID);
     }
 }
 
