@@ -128,11 +128,19 @@
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     NSLog(@"central: state changed");
-    
+    if (central.state != CBCentralManagerStatePoweredOn) {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"BLE not supported !" message:[NSString stringWithFormat:@"CoreBluetooth return state: %d",central.state] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    } else {
+        [central scanForPeripheralsWithServices:nil options:nil];
+    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
-    NSLog(@"central: discovered peripheral");
+    NSLog(@"central: discovered peripheral >> %@",peripheral);
+    
+    peripheral.delegate = self;
+    [central connectPeripheral:peripheral options:nil];
 }
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
@@ -148,6 +156,10 @@
 }
 
 #pragma mark - CBperipheral delegate function
+
+- (void) peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
+    NSLog(@"peripheral: discovered service");
+}
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     NSLog(@"peripheral: discovered characteristics for service");
