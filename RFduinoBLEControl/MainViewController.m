@@ -8,6 +8,9 @@
 
 #import "MainViewController.h"
 
+#define OFF_BG_COLOR [UIColor lightGrayColor]
+#define ON_BG_COLOR [UIColor grayColor]
+
 @interface MainViewController ()
 
 @end
@@ -29,6 +32,7 @@
 
 - (void)styleUI {
     self.scanButton.layer.cornerRadius = 5;
+    [self.scanButton setOffBackgroundColor:OFF_BG_COLOR onBGColor:ON_BG_COLOR];
 }
 
 - (IBAction)toggleScan:(id)sender {

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "UIToggleButton.h"
 
 @interface MainViewController : UIViewController
 
 @property AppDelegate* delegate;
-@property (strong, nonatomic) IBOutlet UIButton *scanButton;
+@property (strong, nonatomic) IBOutlet UIToggleButton *scanButton;
 
 @end
