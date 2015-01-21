@@ -41,7 +41,13 @@
 }
 
 - (IBAction)toggleScan:(id)sender {
-    [self.delegate startBLEScanning];
+    if (self.scanButton.isToggled) {
+        [self.scanButton setTitle:@"Scan"];
+        [self.delegate stopBLEScanning];
+    } else {
+        [self.scanButton setTitle:@"Stop"];
+        [self.delegate startBLEScanning];
+    }
 }
 
 @end

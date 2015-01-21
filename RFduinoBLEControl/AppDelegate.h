@@ -27,6 +27,7 @@
 
 - (void)setupCoreBluetooth;
 - (void)startBLEScanning;
+- (void)stopBLEScanning;
 
 @end
 

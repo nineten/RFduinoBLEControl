@@ -196,11 +196,17 @@
 
 - (void)startBLEScanning {
     if (self.cbmanager.state == CBCentralManagerStatePoweredOn) {
+        NSLog(@"central: starting scan.");
         [self.cbmanager scanForPeripheralsWithServices:nil options:nil];
     } else {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Bluetooth not turned on." message:[NSString stringWithFormat:@"CoreBluetooth return state: %d",self.cbmanager.state] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
     }
+}
+
+- (void)stopBLEScanning {
+    NSLog(@"central: stopping scan.");
+    [self.cbmanager stopScan];
 }
 
 @end
