@@ -12,5 +12,6 @@
 @interface MainViewController : UIViewController
 
 @property AppDelegate* delegate;
+@property (strong, nonatomic) IBOutlet UIButton *scanButton;
 
 @end

@@ -132,8 +132,6 @@
     if (central.state != CBCentralManagerStatePoweredOn) {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"BLE not supported !" message:[NSString stringWithFormat:@"CoreBluetooth return state: %d",central.state] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
-    } else {
-        [central scanForPeripheralsWithServices:nil options:nil];
     }
 }
 
@@ -194,6 +192,15 @@
     self.cbmanager.delegate = self;
     
     self.nDevices = [[NSMutableArray alloc] init];
+}
+
+- (void)startBLEScanning {
+    if (self.cbmanager.state == CBCentralManagerStatePoweredOn) {
+        [self.cbmanager scanForPeripheralsWithServices:nil options:nil];
+    } else {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Bluetooth not turned on." message:[NSString stringWithFormat:@"CoreBluetooth return state: %d",self.cbmanager.state] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 @end

@@ -26,6 +26,7 @@
 @property (strong, nonatomic) NSMutableArray *nDevices;
 
 - (void)setupCoreBluetooth;
+- (void)startBLEScanning;
 
 @end
 
