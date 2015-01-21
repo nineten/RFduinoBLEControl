@@ -19,6 +19,8 @@
 
 @implementation MainViewController
 
+@synthesize bleDeviceTable;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -49,5 +51,17 @@
         [self.delegate startBLEScanning];
     }
 }
+
+#pragma mark - TableView
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+
 
 @end
