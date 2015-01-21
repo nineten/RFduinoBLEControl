@@ -8,8 +8,10 @@
 
 #import "MainViewController.h"
 
-#define OFF_BG_COLOR [UIColor lightGrayColor]
-#define ON_BG_COLOR [UIColor grayColor]
+#define BUTTON_NORMAL_BG_COLOR [UIColor lightGrayColor]
+#define BUTTON_HIGHLIGHTED_BG_COLOR [UIColor grayColor]
+#define BUTTON_TOGGLED_BG_COLOR [UIColor darkGrayColor]
+#define BUTTON_TEXT_COLOR [UIColor whiteColor]
 
 @interface MainViewController ()
 
@@ -31,8 +33,11 @@
 }
 
 - (void)styleUI {
-    self.scanButton.layer.cornerRadius = 5;
-    [self.scanButton setOffBackgroundColor:OFF_BG_COLOR onBGColor:ON_BG_COLOR];
+    self.scanButton.layer.cornerRadius = 10;
+    [self.scanButton setTiteTextColor:BUTTON_TEXT_COLOR
+                normalBackgroundColor:BUTTON_NORMAL_BG_COLOR
+                   highlightedBGColor:BUTTON_HIGHLIGHTED_BG_COLOR
+                       toggledBGColor:BUTTON_TOGGLED_BG_COLOR];
 }
 
 - (IBAction)toggleScan:(id)sender {

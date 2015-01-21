@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface UIToggleButton : UIButton {
-    UIColor* onBGColor;
-    UIColor* offBGColor;
+    UIColor* normalBGColor;
+    UIColor* highlightedBGColor;
+    UIColor* toggledBGColor;
+    UIColor* titleLabelTextColor;
 }
 
-- (void)setOffBackgroundColor:(UIColor*)offColor onBGColor:(UIColor*)onColor;
+@property BOOL isToggled;
+
+- (void)setTiteTextColor: (UIColor*)textColor normalBackgroundColor:(UIColor*)normalColor highlightedBGColor:(UIColor*)highlightedColor toggledBGColor:(UIColor*)toggledColor;
 
 @end

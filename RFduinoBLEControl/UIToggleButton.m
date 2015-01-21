@@ -10,18 +10,39 @@
 
 @implementation UIToggleButton
 
-- (void)setOffBackgroundColor:(UIColor*)offColor onBGColor:(UIColor*)onColor {
-    onBGColor = onColor;
-    offBGColor = offColor;
+- (instancetype)init {
+    self = [super init];
+    self.isToggled = false;
+    
+    return self;
+}
+
+- (void)setTiteTextColor: (UIColor*)textColor normalBackgroundColor:(UIColor*)normalColor highlightedBGColor:(UIColor*)highlightedColor toggledBGColor:(UIColor*)toggledColor {
+    titleLabelTextColor = textColor;
+    normalBGColor = normalColor;
+    highlightedBGColor = highlightedColor;
+    toggledBGColor = toggledColor;
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
     
     if (highlighted) {
-        self.backgroundColor = onBGColor;
+        self.backgroundColor = highlightedBGColor;
     } else {
-        self.backgroundColor = offBGColor;
+        self.backgroundColor = normalBGColor;
+    }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+    
+    if (self.isToggled) {
+        self.backgroundColor = normalBGColor;
+        self.isToggled = false;
+    } else {
+        self.backgroundColor = toggledBGColor;
+        self.isToggled = true;
     }
 }
 
