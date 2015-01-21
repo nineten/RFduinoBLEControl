@@ -12,16 +12,33 @@
 
 - (instancetype)init {
     self = [super init];
-    self.isToggled = false;
+    self.currentState = UIToggleButtonNormal;
     
     return self;
 }
 
-- (void)setTiteTextColor: (UIColor*)textColor normalBackgroundColor:(UIColor*)normalColor highlightedBGColor:(UIColor*)highlightedColor toggledBGColor:(UIColor*)toggledColor {
+- (void)setTiteTextColor:(UIColor*)textColor
+   normalBackgroundColor:(UIColor*)normalColor
+      highlightedBGColor:(UIColor*)highlightedColor
+          toggledBGColor:(UIColor*)toggledColor {
     titleLabelTextColor = textColor;
     normalBGColor = normalColor;
     highlightedBGColor = highlightedColor;
     toggledBGColor = toggledColor;
+}
+
+- (void)setTiteTextColor:(UIColor*)textColor
+   normalBackgroundColor:(UIColor*)normalColor
+      highlightedBGColor:(UIColor*)highlightedColor
+          toggledBGColor:(UIColor*)toggledColor
+              normalText:(NSString*)normText
+             toggledText:(NSString*)toggText {
+    [self setTiteTextColor:textColor
+     normalBackgroundColor:normalColor
+        highlightedBGColor:highlightedColor
+            toggledBGColor:toggledColor];
+    normalText = normText;
+    toggledText = toggText;
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
@@ -42,12 +59,29 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
     
-    if (self.isToggled) {
-        self.backgroundColor = normalBGColor;
-        self.isToggled = false;
+    if (self.currentState == UIToggleButtonNormal) {
+        [self setState:UIToggleButtonToggled];
     } else {
-        self.backgroundColor = toggledBGColor;
-        self.isToggled = true;
+        [self setState:UIToggleButtonNormal];
+    }
+}
+
+- (void)setState:(UIToggleButtonState)state {
+    self.currentState = state;
+    switch (state) {
+        case UIToggleButtonNormal:
+            self.backgroundColor = normalBGColor;
+            [self setTitle:normalText];
+            break;
+        case UIToggleButtonHighlighted:
+            self.backgroundColor = highlightedBGColor;
+            break;
+        case UIToggleButtonToggled:
+            self.backgroundColor = toggledBGColor;
+            [self setTitle:toggledText];
+            break;
+        default:
+            break;
     }
 }
 

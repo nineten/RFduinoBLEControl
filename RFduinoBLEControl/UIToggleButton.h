@@ -13,11 +13,22 @@
     UIColor* highlightedBGColor;
     UIColor* toggledBGColor;
     UIColor* titleLabelTextColor;
+    NSString* normalText;
+    NSString* toggledText;
 }
 
-@property BOOL isToggled;
+typedef NS_ENUM(int, UIToggleButtonState) {
+    UIToggleButtonNormal,
+    UIToggleButtonHighlighted,
+    UIToggleButtonToggled
+};
+
+@property UIToggleButtonState currentState;
 
 - (void)setTitle:(NSString *)title;
-- (void)setTiteTextColor: (UIColor*)textColor normalBackgroundColor:(UIColor*)normalColor highlightedBGColor:(UIColor*)highlightedColor toggledBGColor:(UIColor*)toggledColor;
+- (void)setTiteTextColor:(UIColor*)textColor normalBackgroundColor:(UIColor*)normalColor highlightedBGColor:(UIColor*)highlightedColor toggledBGColor:(UIColor*)toggledColor;
+- (void)setTiteTextColor:(UIColor*)textColor normalBackgroundColor:(UIColor*)normalColor highlightedBGColor:(UIColor*)highlightedColor toggledBGColor:(UIColor*)toggledColor normalText:(NSString*)normText toggledText:(NSString*)toggText;
+- (void)setState:(UIToggleButtonState)state;
+
 
 @end

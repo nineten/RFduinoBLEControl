@@ -43,17 +43,33 @@
     [self.scanButton setTiteTextColor:BUTTON_TEXT_COLOR
                 normalBackgroundColor:BUTTON_NORMAL_BG_COLOR
                    highlightedBGColor:BUTTON_HIGHLIGHTED_BG_COLOR
-                       toggledBGColor:BUTTON_TOGGLED_BG_COLOR];
+                       toggledBGColor:BUTTON_TOGGLED_BG_COLOR
+                           normalText:@"Scan"
+                          toggledText:@"Stop"];
     [self.bleDeviceTable setSeparatorInset:UIEdgeInsetsZero];
 }
 
 - (IBAction)toggleScan:(id)sender {
-    if (self.scanButton.isToggled) {
-        [self.scanButton setTitle:@"Scan"];
-        [self.delegate stopBLEScanning];
+    if (self.scanButton.currentState == UIToggleButtonToggled) {
+        [self stopScan];
     } else {
-        [self.scanButton setTitle:@"Stop"];
-        [self.delegate startBLEScanning];
+        [self startScan];
+    }
+}
+
+- (void)stopScan {
+    [self.delegate stopBLEScanning];
+}
+
+- (void)startScan {
+    [self.delegate startBLEScanning];
+}
+
+- (void)checkAndStopScan {
+    if (self.scanButton.currentState == UIToggleButtonToggled) {
+        NSLog(@"touching up the button");
+        [self.scanButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+        [self.scanButton setState:UIToggleButtonNormal];
     }
 }
 
@@ -73,6 +89,11 @@
     cell.textLabel.text = [[self.delegate.nDevices objectAtIndex:indexPath.row] name];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self checkAndStopScan];
+    [self.delegate connectToBLEDevice:[self.delegate.nDevices objectAtIndex:indexPath.row]];
 }
 
 - (void)refreshTable {

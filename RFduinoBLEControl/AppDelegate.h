@@ -26,10 +26,13 @@
 @property (strong, nonatomic) CBPeripheral* cbperipheral;
 @property (strong, nonatomic) NSMutableArray *nDevices;
 @property MainViewController* mainViewController;
+@property BOOL isScanning;
 
 - (void)setupCoreBluetooth;
 - (void)startBLEScanning;
 - (void)stopBLEScanning;
+- (void)connectToBLEDevice:(CBPeripheral*)peripheral;
+- (void)disconnectFromBLEDevice:(CBPeripheral *)peripheral;
 
 @end
 

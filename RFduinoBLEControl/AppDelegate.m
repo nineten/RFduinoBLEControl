@@ -167,7 +167,10 @@
 - (void) peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
     NSLog(@"peripheral: discovered service >> %@", peripheral.name);
     
-    [self.cbmanager cancelPeripheralConnection:peripheral];
+    if (self.isScanning) {
+        [self.cbmanager cancelPeripheralConnection:peripheral];
+    }
+    
     for (CBService *service in peripheral.services) {
         NSLog(@"peripheral: service found >> %@",service.UUID);
     }
@@ -191,6 +194,7 @@
     NSLog(@"setting up core bluetooth manager.");
     self.cbmanager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
     self.cbmanager.delegate = self;
+    self.isScanning = false;
 }
 
 - (void)startBLEScanning {
@@ -199,6 +203,7 @@
     
     if (self.cbmanager.state == CBCentralManagerStatePoweredOn) {
         NSLog(@"central: starting scan.");
+        self.isScanning = true;
         [self.cbmanager scanForPeripheralsWithServices:nil options:nil];
     } else {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Bluetooth not turned on." message:[NSString stringWithFormat:@"CoreBluetooth return state: %d",self.cbmanager.state] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -209,6 +214,17 @@
 - (void)stopBLEScanning {
     NSLog(@"central: stopping scan.");
     [self.cbmanager stopScan];
+    self.isScanning = false;
 }
+
+- (void)connectToBLEDevice:(CBPeripheral *)peripheral {
+    self.cbperipheral = peripheral;
+    [self.cbmanager connectPeripheral:peripheral options:nil];
+}
+
+- (void)disconnectFromBLEDevice:(CBPeripheral *)peripheral {
+    [self.cbmanager cancelPeripheralConnection:peripheral];
+}
+
 
 @end
