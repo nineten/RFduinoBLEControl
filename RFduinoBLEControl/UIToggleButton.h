@@ -17,6 +17,7 @@
 
 @property BOOL isToggled;
 
+- (void)setTitle:(NSString *)title;
 - (void)setTiteTextColor: (UIColor*)textColor normalBackgroundColor:(UIColor*)normalColor highlightedBGColor:(UIColor*)highlightedColor toggledBGColor:(UIColor*)toggledColor;
 
 @end
