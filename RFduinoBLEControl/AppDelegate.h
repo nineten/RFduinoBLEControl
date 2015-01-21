@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "MainViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CBPeripheralDelegate>
 
@@ -24,6 +25,7 @@
 @property (strong, nonatomic) CBCentralManager* cbmanager;
 @property (strong, nonatomic) CBPeripheral* cbperipheral;
 @property (strong, nonatomic) NSMutableArray *nDevices;
+@property MainViewController* mainViewController;
 
 - (void)setupCoreBluetooth;
 - (void)startBLEScanning;

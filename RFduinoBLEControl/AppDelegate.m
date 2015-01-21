@@ -136,7 +136,7 @@
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
-    NSLog(@"central: discovered peripheral >> %@ %@",peripheral.name, advertisementData);
+    NSLog(@"central: discovered peripheral >> %@",peripheral.name);
     
     if ([peripheral.name isEqualToString:@"JBLEAdv"]) {
         peripheral.delegate = self;
@@ -144,6 +144,7 @@
         
         // store the peripherals to prevent ARC i think?
         [self.nDevices addObject:peripheral];
+        [self.mainViewController refreshTable];
     }
 }
 
@@ -190,11 +191,12 @@
     NSLog(@"setting up core bluetooth manager.");
     self.cbmanager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
     self.cbmanager.delegate = self;
-    
-    self.nDevices = [[NSMutableArray alloc] init];
 }
 
 - (void)startBLEScanning {
+    self.nDevices = [[NSMutableArray alloc] init];
+    [self.mainViewController refreshTable];
+    
     if (self.cbmanager.state == CBCentralManagerStatePoweredOn) {
         NSLog(@"central: starting scan.");
         [self.cbmanager scanForPeripheralsWithServices:nil options:nil];

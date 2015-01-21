@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "AppDelegate.h"
 
 #define BUTTON_NORMAL_BG_COLOR [UIColor lightGrayColor]
 #define BUTTON_HIGHLIGHTED_BG_COLOR [UIColor grayColor]
@@ -14,6 +15,8 @@
 #define BUTTON_TEXT_COLOR [UIColor whiteColor]
 
 @interface MainViewController ()
+
+@property AppDelegate* delegate;
 
 @end
 
@@ -25,6 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    self.delegate.mainViewController = self;
     [self.delegate setupCoreBluetooth];
     [self styleUI];
 }
@@ -40,6 +44,7 @@
                 normalBackgroundColor:BUTTON_NORMAL_BG_COLOR
                    highlightedBGColor:BUTTON_HIGHLIGHTED_BG_COLOR
                        toggledBGColor:BUTTON_TOGGLED_BG_COLOR];
+    [self.bleDeviceTable setSeparatorInset:UIEdgeInsetsZero];
 }
 
 - (IBAction)toggleScan:(id)sender {
@@ -54,14 +59,24 @@
 
 #pragma mark - TableView
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return [self.delegate.nDevices count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"bleTableCell" forIndexPath:indexPath];
+    cell.textLabel.text = [[self.delegate.nDevices objectAtIndex:indexPath.row] name];
+    
+    return cell;
 }
 
-
+- (void)refreshTable {
+    [self.bleDeviceTable reloadData];
+}
 
 @end

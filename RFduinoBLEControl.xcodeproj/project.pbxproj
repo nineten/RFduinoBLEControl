@@ -18,6 +18,7 @@
 		158760D71A6E2B0900A5AE0F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760D61A6E2B0900A5AE0F /* MainViewController.m */; };
 		158760DC1A6F52F600A5AE0F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 158760DB1A6F52F600A5AE0F /* README.md */; };
 		158760DF1A6F6DA000A5AE0F /* UIToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760DE1A6F6DA000A5AE0F /* UIToggleButton.m */; };
+		158760E11A6F9BF800A5AE0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158760E01A6F9BF800A5AE0F /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		158760DB1A6F52F600A5AE0F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		158760DD1A6F6DA000A5AE0F /* UIToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIToggleButton.h; sourceTree = "<group>"; };
 		158760DE1A6F6DA000A5AE0F /* UIToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIToggleButton.m; sourceTree = "<group>"; };
+		158760E01A6F9BF800A5AE0F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				158760E11A6F9BF800A5AE0F /* UIKit.framework in Frameworks */,
 				158760D31A6E255C00A5AE0F /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +140,7 @@
 		158760D41A6E256B00A5AE0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				158760E01A6F9BF800A5AE0F /* UIKit.framework */,
 				158760D21A6E255C00A5AE0F /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;
