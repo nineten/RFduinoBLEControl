@@ -61,10 +61,19 @@
 
 - (void)checkAndStopScan {
     if (self.scanButton.currentState == UIToggleButtonToggled) {
-        NSLog(@"touching up the button");
         [self.scanButton sendActionsForControlEvents:UIControlEventTouchUpInside];
         [self.scanButton setState:UIToggleButtonNormal];
     }
+}
+
+- (void)successfulPairing {
+    NSLog(@"pairing successful");
+    [self setupLEDModuleView];
+}
+
+- (void)setupLEDModuleView {
+    self.ledModuleView = [[LEDModuleView alloc] initWithFrame:self.moduleView.frame];
+    [self.view insertSubview:self.ledModuleView aboveSubview:self.moduleView];
 }
 
 #pragma mark - TableView

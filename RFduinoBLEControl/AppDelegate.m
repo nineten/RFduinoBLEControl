@@ -150,8 +150,11 @@
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     NSLog(@"central: connected to peripheral >> %@", peripheral.name);
-    
-    [peripheral discoverServices:nil];
+    if (self.isScanning) {
+        [peripheral discoverServices:nil];
+    } else {
+        [self.mainViewController successfulPairing];
+    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {

@@ -10,7 +10,7 @@
 
 @implementation UIToggleButton
 
-- (instancetype)init {
+- (id)init {
     self = [super init];
     self.currentState = UIToggleButtonNormal;
     

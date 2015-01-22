@@ -10,12 +10,16 @@
 
 @implementation LEDModuleView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [[NSBundle mainBundle] loadNibNamed:@"LEDModuleView" owner:self options:nil];
+        NSLog(@"initialising led module view");
         [self styleUI];
+        [[NSBundle mainBundle] loadNibNamed:@"LEDModuleView" owner:self options:nil];
+        self.moduleView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+        [self addSubview: self.moduleView];
+        
     }
     return self;
 }
