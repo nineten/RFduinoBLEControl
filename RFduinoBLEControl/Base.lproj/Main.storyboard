@@ -19,11 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04q-l5-qlp" customClass="UIToggleButton">
-                                <rect key="frame" x="250" y="30" width="100" height="100"/>
+                                <rect key="frame" x="0.0" y="30" width="600" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="ZqA-oX-NU5"/>
-                                    <constraint firstAttribute="height" constant="100" id="n7d-ga-KuX"/>
+                                    <constraint firstAttribute="height" constant="60" id="n7d-ga-KuX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Scan">
@@ -34,12 +33,16 @@
                                     <action selector="toggleScan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hCy-Q1-DmF"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pXR-Ec-oew">
-                                <rect key="frame" x="0.0" y="170" width="600" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFc-ji-rux" userLabel="Module View">
+                                <rect key="frame" x="0.0" y="350" width="600" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="9YJ-Cw-kG2"/>
+                                    <constraint firstAttribute="height" constant="250" id="v14-Jx-EoK"/>
                                 </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pXR-Ec-oew">
+                                <rect key="frame" x="0.0" y="100" width="600" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bleTableCell" id="Zu2-dT-Tul">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -56,11 +59,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pXR-Ec-oew" firstAttribute="top" secondItem="04q-l5-qlp" secondAttribute="bottom" constant="40" id="Hhd-bJ-bzz"/>
-                            <constraint firstAttribute="centerX" secondItem="04q-l5-qlp" secondAttribute="centerX" id="KNq-bz-VEz"/>
+                            <constraint firstItem="AFc-ji-rux" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="ASi-W2-Sam"/>
+                            <constraint firstItem="pXR-Ec-oew" firstAttribute="top" secondItem="04q-l5-qlp" secondAttribute="bottom" constant="10" id="G5C-Cx-OaC"/>
+                            <constraint firstItem="04q-l5-qlp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Mqj-YR-btO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="04q-l5-qlp" secondAttribute="trailing" constant="-16" id="S6H-Lo-O6j"/>
+                            <constraint firstItem="AFc-ji-rux" firstAttribute="top" secondItem="pXR-Ec-oew" secondAttribute="bottom" constant="10" id="YJs-sn-qEA"/>
                             <constraint firstItem="04q-l5-qlp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="e2C-Tv-dJS"/>
                             <constraint firstItem="pXR-Ec-oew" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="jpo-HO-DC2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pXR-Ec-oew" secondAttribute="trailing" constant="-16" id="uBZ-Zw-PTo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AFc-ji-rux" secondAttribute="trailing" constant="-16" id="wN6-TH-aGT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AFc-ji-rux" secondAttribute="bottom" id="zGG-aO-wcE"/>
                         </constraints>
                     </view>
                     <connections>

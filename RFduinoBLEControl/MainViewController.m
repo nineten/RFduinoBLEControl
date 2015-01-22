@@ -39,7 +39,6 @@
 }
 
 - (void)styleUI {
-    self.scanButton.layer.cornerRadius = 10;
     [self.scanButton setTiteTextColor:BUTTON_TEXT_COLOR
                 normalBackgroundColor:BUTTON_NORMAL_BG_COLOR
                    highlightedBGColor:BUTTON_HIGHLIGHTED_BG_COLOR
