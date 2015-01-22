@@ -153,6 +153,7 @@
     if (self.isScanning) {
         [peripheral discoverServices:nil];
     } else {
+        [peripheral discoverServices:nil];
         [self.mainViewController successfulPairing];
     }
 }
@@ -175,12 +176,20 @@
     }
     
     for (CBService *service in peripheral.services) {
-        NSLog(@"peripheral: service found >> %@",service.UUID);
+        NSLog(@"peripheral: service found >> %@",service);
+        [peripheral discoverCharacteristics:nil forService:service];
     }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     NSLog(@"peripheral: discovered characteristics for service");
+    
+    for (CBCharacteristic *characteristic in service.characteristics) {
+        NSLog(@"%@", characteristic);
+        if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"2222"]]) {
+            self.ledModuleCharacteristic = characteristic;
+        }
+    }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
@@ -222,6 +231,7 @@
 
 - (void)connectToBLEDevice:(CBPeripheral *)peripheral {
     self.cbperipheral = peripheral;
+    self.cbperipheral.delegate = self;
     [self.cbmanager connectPeripheral:peripheral options:nil];
 }
 

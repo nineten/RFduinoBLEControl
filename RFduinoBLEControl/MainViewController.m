@@ -66,14 +66,17 @@
     }
 }
 
+- (void)startPairing:(CBPeripheral*)peripheral {
+    [self.delegate connectToBLEDevice:peripheral];
+}
+
+- (void)stopPairing {
+    [self.delegate disconnectFromBLEDevice:self.delegate.cbperipheral];
+}
+
 - (void)successfulPairing {
     NSLog(@"pairing successful");
     [self setupLEDModuleView];
-}
-
-- (void)setupLEDModuleView {
-    self.ledModuleView = [[LEDModuleView alloc] initWithFrame:self.moduleView.frame];
-    [self.view insertSubview:self.ledModuleView aboveSubview:self.moduleView];
 }
 
 #pragma mark - TableView
@@ -96,11 +99,35 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self checkAndStopScan];
-    [self.delegate connectToBLEDevice:[self.delegate.nDevices objectAtIndex:indexPath.row]];
+    [self startPairing:[self.delegate.nDevices objectAtIndex:indexPath.row]];
 }
 
 - (void)refreshTable {
     [self.bleDeviceTable reloadData];
+}
+
+#pragma mark - LEDModule
+
+- (void)setupLEDModuleView {
+    self.ledModuleView = [[LEDModuleView alloc] initWithFrame:self.moduleView.frame];
+    [self.ledModuleView.disconnectButton addTarget:self action:@selector(stopPairing) forControlEvents:UIControlEventTouchUpInside];
+    [self.ledModuleView.ledToggleButton addTarget:self action:@selector(toggleLED) forControlEvents:UIControlEventTouchUpInside];
+    [self.view insertSubview:self.ledModuleView aboveSubview:self.moduleView];
+}
+
+- (void)toggleLED {
+    NSLog(@"attempting to write");
+    NSData* data = nil;
+    uint8_t value;
+    if (self.ledModuleView.ledToggleButton.currentState == UIToggleButtonNormal) {
+        value = 1;
+    } else {
+        value = 0;
+    }
+    data = [NSData dataWithBytes:&value length:sizeof(value)];
+    [self.delegate.cbperipheral writeValue:data
+                         forCharacteristic:self.delegate.ledModuleCharacteristic
+                                      type:CBCharacteristicWriteWithoutResponse];
 }
 
 @end

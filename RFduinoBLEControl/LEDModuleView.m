@@ -14,7 +14,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"initialising led module view");
         [[NSBundle mainBundle] loadNibNamed:@"LEDModuleView" owner:self options:nil];
         [self styleUI];
         self.moduleView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
@@ -24,7 +23,6 @@
 }
 
 - (void)styleUI {
-    NSLog(@"%@",self.ledToggleButton);
     [self.ledToggleButton setTiteTextColor:BUTTON_TEXT_COLOR
                      normalBackgroundColor:BUTTON_NORMAL_BG_COLOR
                         highlightedBGColor:BUTTON_HIGHLIGHTED_BG_COLOR

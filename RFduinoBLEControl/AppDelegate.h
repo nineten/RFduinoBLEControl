@@ -27,6 +27,7 @@
 @property (strong, nonatomic) NSMutableArray *nDevices;
 @property MainViewController* mainViewController;
 @property BOOL isScanning;
+@property (strong, nonatomic) CBCharacteristic* ledModuleCharacteristic;
 
 - (void)setupCoreBluetooth;
 - (void)startBLEScanning;
