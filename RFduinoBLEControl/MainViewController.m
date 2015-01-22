@@ -9,11 +9,6 @@
 #import "MainViewController.h"
 #import "AppDelegate.h"
 
-#define BUTTON_NORMAL_BG_COLOR [UIColor lightGrayColor]
-#define BUTTON_HIGHLIGHTED_BG_COLOR [UIColor grayColor]
-#define BUTTON_TOGGLED_BG_COLOR [UIColor darkGrayColor]
-#define BUTTON_TEXT_COLOR [UIColor whiteColor]
-
 @interface MainViewController ()
 
 @property AppDelegate* delegate;

@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet UIToggleButton *scanButton;
 @property (strong, nonatomic) IBOutlet UITableView *bleDeviceTable;
+@property (strong, nonatomic) IBOutlet UIView *moduleView;
 
 - (void)refreshTable;
 

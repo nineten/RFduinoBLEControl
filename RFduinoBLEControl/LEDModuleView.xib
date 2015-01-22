@@ -5,7 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LEDModuleView">
+            <connections>
+                <outlet property="disconnectButton" destination="Une-aD-5YC" id="8Ml-vi-mLu"/>
+                <outlet property="ledToggleButton" destination="r40-Ib-oLj" id="4oK-E4-7xc"/>
+                <outlet property="moduleView" destination="iN0-l3-epB" id="CAy-4h-Ods"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
@@ -61,6 +67,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="289" y="176"/>
         </view>
     </objects>
 </document>

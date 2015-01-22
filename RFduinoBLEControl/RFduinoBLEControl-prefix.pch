@@ -1,0 +1,24 @@
+//
+//  RFduinoBLEControl-prefix.pch
+//  RFduinoBLEControl
+//
+//  Created by Jayden.Ma on 22/1/15.
+//
+//
+
+#ifndef RFduinoBLEControl_RFduinoBLEControl_prefix_pch
+#define RFduinoBLEControl_RFduinoBLEControl_prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
+
+#ifdef __OBJC__
+
+    #define BUTTON_NORMAL_BG_COLOR [UIColor lightGrayColor]
+    #define BUTTON_HIGHLIGHTED_BG_COLOR [UIColor grayColor]
+    #define BUTTON_TOGGLED_BG_COLOR [UIColor darkGrayColor]
+    #define BUTTON_TEXT_COLOR [UIColor whiteColor]
+
+#endif

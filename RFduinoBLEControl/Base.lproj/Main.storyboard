@@ -73,6 +73,7 @@
                     </view>
                     <connections>
                         <outlet property="bleDeviceTable" destination="pXR-Ec-oew" id="OPs-oZ-DKg"/>
+                        <outlet property="moduleView" destination="AFc-ji-rux" id="ABJ-sM-FSa"/>
                         <outlet property="scanButton" destination="04q-l5-qlp" id="uk0-7e-tBu"/>
                     </connections>
                 </viewController>

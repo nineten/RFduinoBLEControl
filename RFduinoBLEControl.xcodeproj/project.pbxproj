@@ -19,6 +19,8 @@
 		158760DC1A6F52F600A5AE0F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 158760DB1A6F52F600A5AE0F /* README.md */; };
 		158760DF1A6F6DA000A5AE0F /* UIToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760DE1A6F6DA000A5AE0F /* UIToggleButton.m */; };
 		158760E11A6F9BF800A5AE0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158760E01A6F9BF800A5AE0F /* UIKit.framework */; };
+		158760E71A70D59000A5AE0F /* LEDModuleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158760E61A70D59000A5AE0F /* LEDModuleView.xib */; };
+		158760EA1A70D80200A5AE0F /* LEDModuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 158760E91A70D80200A5AE0F /* LEDModuleView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		158760DD1A6F6DA000A5AE0F /* UIToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIToggleButton.h; sourceTree = "<group>"; };
 		158760DE1A6F6DA000A5AE0F /* UIToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIToggleButton.m; sourceTree = "<group>"; };
 		158760E01A6F9BF800A5AE0F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		158760E61A70D59000A5AE0F /* LEDModuleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LEDModuleView.xib; sourceTree = "<group>"; };
+		158760E81A70D80200A5AE0F /* LEDModuleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEDModuleView.h; sourceTree = "<group>"; };
+		158760E91A70D80200A5AE0F /* LEDModuleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEDModuleView.m; sourceTree = "<group>"; };
+		158760EB1A70D9CF00A5AE0F /* RFduinoBLEControl-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RFduinoBLEControl-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 				158760DD1A6F6DA000A5AE0F /* UIToggleButton.h */,
 				158760DE1A6F6DA000A5AE0F /* UIToggleButton.m */,
 				158760B61A6E22EF00A5AE0F /* Main.storyboard */,
+				158760E81A70D80200A5AE0F /* LEDModuleView.h */,
+				158760E91A70D80200A5AE0F /* LEDModuleView.m */,
+				158760E61A70D59000A5AE0F /* LEDModuleView.xib */,
 				158760B91A6E22EF00A5AE0F /* Images.xcassets */,
 				158760BB1A6E22EF00A5AE0F /* LaunchScreen.xib */,
 				158760B01A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodeld */,
@@ -114,6 +123,7 @@
 		158760A91A6E22EF00A5AE0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				158760EB1A70D9CF00A5AE0F /* RFduinoBLEControl-prefix.pch */,
 				158760AA1A6E22EF00A5AE0F /* Info.plist */,
 				158760AB1A6E22EF00A5AE0F /* main.m */,
 			);
@@ -225,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				158760E71A70D59000A5AE0F /* LEDModuleView.xib in Resources */,
 				158760B81A6E22EF00A5AE0F /* Main.storyboard in Resources */,
 				158760BD1A6E22EF00A5AE0F /* LaunchScreen.xib in Resources */,
 				158760BA1A6E22EF00A5AE0F /* Images.xcassets in Resources */,
@@ -248,6 +259,7 @@
 				158760AF1A6E22EF00A5AE0F /* AppDelegate.m in Sources */,
 				158760DF1A6F6DA000A5AE0F /* UIToggleButton.m in Sources */,
 				158760AC1A6E22EF00A5AE0F /* main.m in Sources */,
+				158760EA1A70D80200A5AE0F /* LEDModuleView.m in Sources */,
 				158760DC1A6F52F600A5AE0F /* README.md in Sources */,
 				158760B21A6E22EF00A5AE0F /* RFduinoBLEControl.xcdatamodeld in Sources */,
 				158760D71A6E2B0900A5AE0F /* MainViewController.m in Sources */,
@@ -374,6 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "RFduinoBLEControl/RFduinoBLEControl-prefix.pch";
 				INFOPLIST_FILE = RFduinoBLEControl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -385,6 +398,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "RFduinoBLEControl/RFduinoBLEControl-prefix.pch";
 				INFOPLIST_FILE = RFduinoBLEControl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
