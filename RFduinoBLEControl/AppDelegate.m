@@ -138,14 +138,11 @@
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
     NSLog(@"central: discovered peripheral >> %@",peripheral.name);
     
-    if ([peripheral.name isEqualToString:@"JBLEAdv"]) {
-        peripheral.delegate = self;
-        [central connectPeripheral:peripheral options:nil];
+    peripheral.delegate = self;
+    [central connectPeripheral:peripheral options:nil];
         
-        // store the peripherals to prevent ARC i think?
-        [self.nDevices addObject:peripheral];
-        [self.mainViewController refreshTable];
-    }
+    // store the peripherals to prevent ARC i think?
+    [self.nDevices addObject:peripheral];
 }
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
@@ -173,6 +170,10 @@
     
     if (self.isScanning) {
         [self.cbmanager cancelPeripheralConnection:peripheral];
+        if ([peripheral.name hasPrefix:@"JBLE"]) {
+            [self.jBLEDevices addObject:peripheral];
+            [self.mainViewController refreshTable];
+        }
     }
     
     for (CBService *service in peripheral.services) {
@@ -184,10 +185,12 @@
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     NSLog(@"peripheral: discovered characteristics for service");
     
-    for (CBCharacteristic *characteristic in service.characteristics) {
-        NSLog(@"%@", characteristic);
-        if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"2222"]]) {
-            self.ledModuleCharacteristic = characteristic;
+    if (peripheral == self.cbperipheral) {
+        for (CBCharacteristic *characteristic in service.characteristics) {
+            NSLog(@"%@", characteristic);
+            if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"2222"]]) {
+                self.ledModuleCharacteristic = characteristic;
+            }
         }
     }
 }
@@ -211,6 +214,7 @@
 
 - (void)startBLEScanning {
     self.nDevices = [[NSMutableArray alloc] init];
+    self.jBLEDevices = [[NSMutableArray alloc] init];
     [self.mainViewController refreshTable];
     
     if (self.cbmanager.state == CBCentralManagerStatePoweredOn) {

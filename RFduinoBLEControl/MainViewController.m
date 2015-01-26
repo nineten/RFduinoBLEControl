@@ -87,19 +87,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.delegate.nDevices count];
+    return [self.delegate.jBLEDevices count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"bleTableCell" forIndexPath:indexPath];
-    cell.textLabel.text = [[self.delegate.nDevices objectAtIndex:indexPath.row] name];
+    cell.textLabel.text = [[self.delegate.jBLEDevices objectAtIndex:indexPath.row] name];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self checkAndStopScan];
-    [self startPairing:[self.delegate.nDevices objectAtIndex:indexPath.row]];
+    [self startPairing:[self.delegate.jBLEDevices objectAtIndex:indexPath.row]];
 }
 
 - (void)refreshTable {
@@ -110,9 +110,15 @@
 
 - (void)setupLEDModuleView {
     self.ledModuleView = [[LEDModuleView alloc] initWithFrame:self.moduleView.frame];
-    [self.ledModuleView.disconnectButton addTarget:self action:@selector(stopPairing) forControlEvents:UIControlEventTouchUpInside];
+    [self.ledModuleView.disconnectButton addTarget:self action:@selector(closeLEDmoduleView) forControlEvents:UIControlEventTouchUpInside];
     [self.ledModuleView.ledToggleButton addTarget:self action:@selector(toggleLED) forControlEvents:UIControlEventTouchUpInside];
     [self.view insertSubview:self.ledModuleView aboveSubview:self.moduleView];
+}
+
+- (void)closeLEDmoduleView {
+    [self stopPairing];
+    [self.ledModuleView removeFromSuperview];
+    self.ledModuleView = nil;
 }
 
 - (void)toggleLED {

@@ -25,6 +25,7 @@
 @property (strong, nonatomic) CBCentralManager* cbmanager;
 @property (strong, nonatomic) CBPeripheral* cbperipheral;
 @property (strong, nonatomic) NSMutableArray *nDevices;
+@property (strong, nonatomic) NSMutableArray *jBLEDevices;
 @property MainViewController* mainViewController;
 @property BOOL isScanning;
 @property (strong, nonatomic) CBCharacteristic* ledModuleCharacteristic;
