@@ -74,9 +74,18 @@
     [self.delegate disconnectFromBLEDevice:self.delegate.cbperipheral];
 }
 
-- (void)successfulPairing {
+- (void)successfulPairing:(JBLEModuleType)moduleType {
     NSLog(@"pairing successful");
-    [self setupLEDModuleView];
+    switch (moduleType) {
+        case JBLELEDModule:
+            [self setupLEDModuleView];
+            break;
+        case JBLEServoModule:
+            [self setupServoModuleView];
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - TableView
@@ -110,12 +119,12 @@
 
 - (void)setupLEDModuleView {
     self.ledModuleView = [[LEDModuleView alloc] initWithFrame:self.moduleView.frame];
-    [self.ledModuleView.disconnectButton addTarget:self action:@selector(closeLEDmoduleView) forControlEvents:UIControlEventTouchUpInside];
+    [self.ledModuleView.disconnectButton addTarget:self action:@selector(closeLEDModuleView) forControlEvents:UIControlEventTouchUpInside];
     [self.ledModuleView.ledToggleButton addTarget:self action:@selector(toggleLED) forControlEvents:UIControlEventTouchUpInside];
     [self.view insertSubview:self.ledModuleView aboveSubview:self.moduleView];
 }
 
-- (void)closeLEDmoduleView {
+- (void)closeLEDModuleView {
     [self stopPairing];
     [self.ledModuleView removeFromSuperview];
     self.ledModuleView = nil;
@@ -133,6 +142,42 @@
     data = [NSData dataWithBytes:&value length:sizeof(value)];
     [self.delegate.cbperipheral writeValue:data
                          forCharacteristic:self.delegate.ledModuleCharacteristic
+                                      type:CBCharacteristicWriteWithoutResponse];
+}
+
+#pragma mark - ServoModule
+
+- (void)setupServoModuleView {
+    self.servoModuleView = [[ServoModuleView alloc] initWithFrame:self.moduleView.frame];
+    [self.servoModuleView.disconnectButton addTarget:self action:@selector(closeServoModuleView) forControlEvents:UIControlEventTouchUpInside];
+    [self.servoModuleView.turnLeftButton addTarget:self action:@selector(toggleServoLeft) forControlEvents:UIControlEventTouchUpInside];
+    [self.servoModuleView.turnRightButton addTarget:self action:@selector(toggleServoRight) forControlEvents:UIControlEventTouchUpInside];
+    [self.view insertSubview:self.servoModuleView aboveSubview:self.moduleView];
+}
+
+- (void)closeServoModuleView {
+    [self stopPairing];
+    [self.servoModuleView removeFromSuperview];
+    self.servoModuleView = nil;
+}
+
+- (void)toggleServoLeft {
+    NSLog(@"attempting to write");
+    NSData* data = nil;
+    uint8_t value = 1;
+    data = [NSData dataWithBytes:&value length:sizeof(value)];
+    [self.delegate.cbperipheral writeValue:data
+                         forCharacteristic:self.delegate.servoModuleCharacteristic
+                                      type:CBCharacteristicWriteWithoutResponse];
+}
+
+- (void)toggleServoRight {
+    NSLog(@"attempting to write");
+    NSData* data = nil;
+    uint8_t value = 2;
+    data = [NSData dataWithBytes:&value length:sizeof(value)];
+    [self.delegate.cbperipheral writeValue:data
+                         forCharacteristic:self.delegate.servoModuleCharacteristic
                                       type:CBCharacteristicWriteWithoutResponse];
 }
 

@@ -29,6 +29,7 @@
 @property MainViewController* mainViewController;
 @property BOOL isScanning;
 @property (strong, nonatomic) CBCharacteristic* ledModuleCharacteristic;
+@property (strong, nonatomic) CBCharacteristic* servoModuleCharacteristic;
 
 - (void)setupCoreBluetooth;
 - (void)startBLEScanning;

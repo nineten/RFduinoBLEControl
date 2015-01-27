@@ -152,7 +152,11 @@
     } else {
         if (peripheral == self.cbperipheral) {
             [peripheral discoverServices:nil];
-            [self.mainViewController successfulPairing];
+            if ([peripheral.name isEqualToString:@"JBLELed"]) {
+                [self.mainViewController successfulPairing:JBLELEDModule];
+            } else if ([peripheral.name isEqualToString:@"JBLEServo"]) {
+                [self.mainViewController successfulPairing:JBLEServoModule];
+            }
         }
     }
 }
@@ -196,8 +200,15 @@
     if (peripheral == self.cbperipheral) {
         for (CBCharacteristic *characteristic in service.characteristics) {
             NSLog(@"%@", characteristic);
-            if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"2222"]]) {
-                self.ledModuleCharacteristic = characteristic;
+            if ([self.cbperipheral.name isEqualToString:@"JBLELed"]) {
+                if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"2222"]]) {
+                    self.ledModuleCharacteristic = characteristic;
+                }
+            } else if ([self.cbperipheral.name isEqualToString:@"JBLEServo"]) {
+                
+                if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"2222"]]) {
+                    self.servoModuleCharacteristic = characteristic;
+                }
             }
         }
     }

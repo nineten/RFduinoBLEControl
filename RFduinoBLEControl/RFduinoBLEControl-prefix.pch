@@ -21,4 +21,10 @@
     #define BUTTON_TOGGLED_BG_COLOR [UIColor darkGrayColor]
     #define BUTTON_TEXT_COLOR [UIColor whiteColor]
 
+    typedef enum {
+        JBLEServoModule,
+        JBLELEDModule
+    }
+    JBLEModuleType;
+
 #endif
