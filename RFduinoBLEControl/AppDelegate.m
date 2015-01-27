@@ -150,13 +150,19 @@
     if (self.isScanning) {
         [peripheral discoverServices:nil];
     } else {
-        [peripheral discoverServices:nil];
-        [self.mainViewController successfulPairing];
+        if (peripheral == self.cbperipheral) {
+            [peripheral discoverServices:nil];
+            [self.mainViewController successfulPairing];
+        }
     }
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
     NSLog(@"central: disconnected from peripheral >> %@", peripheral.name);
+    if (peripheral == self.cbperipheral) {
+        self.cbperipheral.delegate = nil;
+        self.cbperipheral = nil;
+    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -174,11 +180,13 @@
             [self.jBLEDevices addObject:peripheral];
             [self.mainViewController refreshTable];
         }
-    }
-    
-    for (CBService *service in peripheral.services) {
-        NSLog(@"peripheral: service found >> %@",service);
-        [peripheral discoverCharacteristics:nil forService:service];
+    } else {
+        if (peripheral == self.cbperipheral) {
+            for (CBService *service in peripheral.services) {
+                NSLog(@"peripheral: service found >> %@",service);
+                [peripheral discoverCharacteristics:nil forService:service];
+            }
+        }
     }
 }
 
