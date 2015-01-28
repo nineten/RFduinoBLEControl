@@ -156,6 +156,8 @@
                 [self.mainViewController successfulPairing:JBLELEDModule];
             } else if ([peripheral.name isEqualToString:@"JBLEServo"]) {
                 [self.mainViewController successfulPairing:JBLEServoModule];
+            } else if ([peripheral.name isEqualToString:@"JBLEDCMotor"]) {
+                [self.mainViewController successfulPairing:JBLEDCMotorModule];
             }
         }
     }
@@ -205,6 +207,11 @@
                     self.ledModuleCharacteristic = characteristic;
                 }
             } else if ([self.cbperipheral.name isEqualToString:@"JBLEServo"]) {
+                
+                if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"2222"]]) {
+                    self.servoModuleCharacteristic = characteristic;
+                }
+            } else if ([self.cbperipheral.name isEqualToString:@"JBLEDCMotor"]) {
                 
                 if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"2222"]]) {
                     self.servoModuleCharacteristic = characteristic;

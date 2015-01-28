@@ -12,6 +12,7 @@
 @interface MainViewController ()
 
 @property AppDelegate* delegate;
+@property int speed;
 
 @end
 
@@ -82,6 +83,9 @@
             break;
         case JBLEServoModule:
             [self setupServoModuleView];
+            break;
+        case JBLEDCMotorModule:
+            [self setupDCMotorModuleView];
             break;
         default:
             break;
@@ -180,5 +184,44 @@
                          forCharacteristic:self.delegate.servoModuleCharacteristic
                                       type:CBCharacteristicWriteWithoutResponse];
 }
+
+#pragma mark - DCMotorModule
+
+
+- (void)setupDCMotorModuleView {
+    self.speed = 0;
+    self.dcMotorModuleView = [[DCMotorModuleView alloc] initWithFrame:self.moduleView.frame];
+    [self.dcMotorModuleView.disconnectButton addTarget:self action:@selector(closeDCMotorModuleView) forControlEvents:UIControlEventTouchUpInside];
+    [self.dcMotorModuleView.speedSlider addTarget:self action:@selector(speedSliderChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view insertSubview:self.dcMotorModuleView aboveSubview:self.moduleView];
+}
+
+- (void)closeDCMotorModuleView {
+    [self stopPairing];
+    [self.dcMotorModuleView removeFromSuperview];
+    self.dcMotorModuleView = nil;
+}
+
+- (IBAction)speedSliderChanged:(UISlider*)sender {
+    NSLog(@"attempting to write");
+    if ([self isSpeedChanged:sender.value]) {
+        NSData* data = nil;
+        uint8_t value = self.speed + 1;
+        data = [NSData dataWithBytes:&value length:sizeof(value)];
+        [self.delegate.cbperipheral writeValue:data
+                             forCharacteristic:self.delegate.servoModuleCharacteristic
+                                          type:CBCharacteristicWriteWithoutResponse];
+    }
+}
+
+- (BOOL)isSpeedChanged:(float)value {
+    if (self.speed != (int)value) {
+        self.speed = (int)value;
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 @end

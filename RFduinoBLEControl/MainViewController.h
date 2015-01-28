@@ -10,6 +10,7 @@
 #import "UIToggleButton.h"
 #import "LEDModuleView.h"
 #import "ServoModuleView.h"
+#import "DCMotorModuleView.h"
 
 @interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIView *moduleView;
 @property LEDModuleView* ledModuleView;
 @property ServoModuleView* servoModuleView;
+@property DCMotorModuleView* dcMotorModuleView;
 
 - (void)refreshTable;
 - (void)successfulPairing:(JBLEModuleType)moduleType;
